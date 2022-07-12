@@ -1,0 +1,83 @@
+@font-face {
+  font-family: noto;
+  src: url(src/NotoSansSymbols2-Regular.ttf);
+}
+
+body {
+  font-family: noto;
+  font-size: 10rem;
+  background: repeating-linear-gradient(
+    0deg,
+    #0e0d0e 25%,
+    #0e0d0e 50%,
+    #171819 50%,
+    #171819 75%
+  );
+  background-size: 10px 10px;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#app {
+  color: #00ff41;
+  text-shadow: 0 0 1px #fff, 0 0 1px #fff, 0 0 1px #fff, 0 0 1px #0fa,
+    0 0 1px #0fa, 0 0 1px #0fa, 0 0 1px #0fa, 0 0 1px #0fa;
+}
+
+#app.glitching {
+  animation: clip 60ms 500ms linear 20, glitches 1000ms linear 2,
+    diagonalglitch 150ms linear 10;
+}
+
+@keyframes glitches {
+  0% {
+    transform: translateX(0);
+  }
+  80% {
+    transform: translateX(0);
+    color: #fff;
+  }
+  85% {
+    transform: translateX(5px);
+    color: #4e9a26;
+  }
+  90% {
+    transform: translateX(-5px);
+
+    color: white;
+  }
+  95% {
+    transform: translateX(5px);
+    color: #4e9a26;
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes clip {
+  0% {
+    clip-path: polygon(0 100%, 100% 100%, 100% 120%, 0 120%);
+  }
+
+  100% {
+    clip-path: polygon(0 -20%, 100% -20%, 100% 0%, 0 0);
+  }
+}
+
+@keyframes diagonalglitch {
+  0% {
+    transform: scale(1) skew(0deg);
+  }
+
+  50% {
+    transform: scale(2) skew(-180deg);
+  }
+
+  100% {
+    transform: scale(1.5) skew(180deg);
+  }
+}
